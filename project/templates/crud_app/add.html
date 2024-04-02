@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>ADD STUDENT</title>
+{% endblock %}
+{% block content %}
+    <div class= "border border-4 col-4 m-auto mt-5 p-3">
+        <form method="post">
+            {% csrf_token %}
+            <h3 class="text-secondary text-center">Student Form</h3>
+            {{ form.as_p }}
+            <input type="submit" class="bg-primary " value="ADD">
+            <input type="reset" class="bg-primary float-end" value="CANCEL">
+        </form>
+    </div>
+{% endblock %}

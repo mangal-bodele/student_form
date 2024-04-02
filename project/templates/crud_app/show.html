@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>SHOW STUDENT</title>
+{% endblock %}
+{% block content %}
+    <table class="border border-5 text-cneter m-auto col-8">
+        <thead>
+            <tr>
+                <th>Roll</th>
+                <th>First Name</th>
+                <th>Lat Name</th>
+                <th>Address</th>
+                <th>Institute</th>
+                <th>Blood Group</th>
+                <th>Gender</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.roll }}</td>
+                    <td>{{ student.fn }}</td>
+                    <td>{{ student.ln }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>{{ student.institute }}</td>
+                    <td>{{ student.blood_group }}</td>
+                    <td>{{ student.gender }}</td>
+                    <td>
+                        <a href="{% url 'update_url' student.roll %}">
+                            <button type="button" class="btn btn-success">UPDATE</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_url' student.roll %}">
+                            <button type="button" class="btn btn-success">DELETE</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
